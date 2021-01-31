@@ -1,5 +1,5 @@
 {
-  "name": "snapsuzun/yii2-sqs",
+  "name": "kutepov/yii2-sqs",
   "description": "Yii2 Amazon SQS watcher extension for handle messages from SQS queues",
   "type": "yii2-extension",
   "keywords": ["yii", "sqs", "amazon", "sqs", "watcher"],
