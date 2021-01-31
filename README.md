@@ -8,16 +8,21 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-Either run
+Add
 
 ```
-php composer.phar require --prefer-dist snapsuzun/yii2-sqs
-```
+{
+    "require": {
+        "Kutepov/yii2-sqs": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:Kutepov/yii2-sqs.git"
+        }
+    ]
+}
 
-or add
-
-```
-"snapsuzun/yii2-sqs": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
