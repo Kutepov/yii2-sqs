@@ -51,7 +51,7 @@ class SqsClient extends BaseSqsClient
         }
     }
 
-    /**
+/**
      * Получение URL очереди по ее названию
      *
      * @param string $queueName Алиас из sqsQueueAliases или название очереди
@@ -59,18 +59,7 @@ class SqsClient extends BaseSqsClient
      */
     public function getSqsQueueUrl(string $queueName): ?string
     {
-        $queueName = $this->getRealQueueName($queueName);
-        if (empty($this->_knownQueueUrls[$queueName])) {
-            $args = [
-                'QueueName' => $queueName
-            ];
-            if ($this->accountId) {
-                $args['QueueOwnerAWSAccountId'] = $this->accountId;
-            }
-            $result = $this->getQueueUrl($args);
-            $this->_knownQueueUrls[$queueName] = $result->get('QueueUrl');
-        }
-        return $this->_knownQueueUrls[$queueName];
+        return 'https://sqs.'.$this->getRegion().'.amazonaws.com/'.$this->accountId.'/'.$this->queueNameAliases[$queueName];
     }
 
     /**
@@ -122,9 +111,6 @@ class SqsClient extends BaseSqsClient
      */
     public function getQueueName(string $queueName): string
     {
-        if (YII_ENV_DEV) {
-            return 'dev_' . $queueName;
-        }
         return $queueName;
     }
 
